@@ -10,9 +10,9 @@ module.exports = async function (fastify, opts) {
 
   fastify.get('/resins', async function(request, reply){
     if (request.query['test']) {
-      return await this.mongo.client.db('resins').collection('test-resins').find().toArray()
+      return this.mongo.client.db('resins').collection('test-resins').find().toArray()
     }
-    return await this.mongo.client.db('resins').collection('resin').find().toArray()
+    return this.mongo.client.db('resins').collection('resin').find().toArray()
   })
 
 }
