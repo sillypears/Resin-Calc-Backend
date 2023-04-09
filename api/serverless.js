@@ -3,7 +3,7 @@
 // Read the .env file.
 import * as dotenv from "dotenv";
 dotenv.config();
-
+console.log(process.env)
 // Require the framework
 import Fastify from "fastify";
 
