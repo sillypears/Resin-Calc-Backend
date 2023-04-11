@@ -12,18 +12,7 @@ module.exports = async function (fastify, opts) {
     if (request.query['test']) {
       return this.mongo.client.db('resins').collection('test-resins').find().toArray()
     }
-    return this.mongo.client.db('resins').collection('resin').find().toArray()
+    return this.mongo.client.db('resins').collection('resin').find().sort({'name': 1}).toArray()
   })
-
-    fastify.register(require("@fastify/cors"), {
-      origin: "*",
-      methods: ["GET"]
-    });
-    fastify.get('/resins2', async function(request, reply){
-      if (request.query['test']) {
-        return this.mongo.client.db('resins').collection('test-resins').find().toArray()
-      }
-      return this.mongo.client.db('resins').collection('resin').find().toArray()
-    })
 
 }
